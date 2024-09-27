@@ -69,6 +69,8 @@ aws s3api create-bucket --bucket kops-abhi-storage --region us-east-1
 
 ```
 kops create cluster --name=demok8scluster.k8s.local --state=s3://kops-abhi-storage --zones=us-east-1a --node-count=1 --node-size=t2.micro --master-size=t2.micro  --master-volume-size=8 --node-volume-size=8
+Note :- In above command k8s.loacl is the domain is local one, in org we cannot use this local domain,we purchased from go dady and buy it,You need to configure route 53 as mentioned below.
+$ aws route53 create-hosted-zone --name dev.ericon.com --caller-reference 1
 ```
 
 ### Important: Edit the configuration as there are multiple resources created which won't fall into the free tier.
